@@ -1,0 +1,54 @@
+app:
+  name: "DeepGuard AI"
+  version: "2.3.1"
+  environment: "development"
+  cors_origins:
+    - "http://localhost:5173"
+    - "http://127.0.0.1:5173"
+    - "http://localhost:4173"
+    - "http://127.0.0.1:4173"
+    - "http://localhost:3000"
+    - "*"
+
+model:
+  # Provider options: "huggingface" or "local"
+  provider: "huggingface"
+  
+  # Standard Hugging Face deepfake detection model:
+  # e.g., "dima806/deepfake_vs_real_image_detection" or "prithivMLmods/Deep-Fake-Detector-Model"
+  # Default falls back gracefully to a robust ViT architecture if network is offline
+  hf_model_id: "dima806/deepfake_vs_real_image_detection"
+  
+  # Local ViT checkpoint path
+  local_checkpoint_path: "checkpoints/best_vit_model.pth"
+  
+  # Device: "auto", "cuda", "mps", or "cpu"
+  device: "auto"
+  image_size: 224
+  batch_size: 16
+  confidence_threshold: 0.65
+
+video:
+  max_frames: 60
+  sample_interval_sec: 0.25
+  suspicious_threshold: 0.65
+
+face_detection:
+  # Detector: "opencv_dnn" or "opencv_haar"
+  detector: "opencv_dnn"
+  confidence_threshold: 0.60
+  strategy: "largest_face"  # "largest_face", "highest_confidence", "all_faces"
+  margin_percentage: 0.20
+
+database:
+  url: "sqlite:///./deepguard.db"
+
+storage:
+  upload_max_size_mb: 60
+  temp_dir: "storage/temp"
+  reports_dir: "storage/reports"
+
+explainability:
+  enabled: true
+  generate_gradcam: true
+  generate_attention_rollout: true

@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-blush: #FFDBDF;
+    --color-rose: #F791A9;
+    --color-yellow: #FFE797;
+    --color-lime: #DDDD7B;
+    --color-cyan: #E0F2F4;
+    --color-blue: #BAD6DA;
+    --color-navy: #18243A;
+    --color-midnight: #0D1424;
+    --color-real: #2E8B70;
+    --color-fake: #D94F70;
+    --color-warning: #C58B2B;
+  }
+
+  body {
+    background-color: #FFF9FA;
+    color: #18243A;
+    overflow-x: hidden;
+  }
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 236, 242, 0.85);
+}
+
+.glass-nav {
+  background: rgba(255, 249, 250, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(24, 36, 58, 0.06);
+}
+
+/* Subtle background glowing blobs */
+.bg-mesh-pattern {
+  background-image: 
+    radial-gradient(at 15% 15%, rgba(255, 219, 223, 0.5) 0px, transparent 55%),
+    radial-gradient(at 85% 20%, rgba(224, 242, 244, 0.6) 0px, transparent 50%),
+    radial-gradient(at 50% 65%, rgba(255, 231, 151, 0.35) 0px, transparent 60%),
+    radial-gradient(at 90% 85%, rgba(186, 214, 218, 0.4) 0px, transparent 50%);
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/logo.png?v=2" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
+    <link rel="shortcut icon" href="/favicon.ico?v=2" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo.png?v=2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepGuard AI — Deepfake Detection using Vision Transformer</title>
+    <meta name="description" content="AI-powered forensic deepfake detection using Vision Transformers (ViT) with Grad-CAM and Attention Rollout explainability for images and videos." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        const updateFavicon = () => {
+          const faviconUrl = '/logo.png?t=' + Date.now();
+          document.querySelectorAll("link[rel*='icon']").forEach(el => el.remove());
+          
+          const link = document.createElement('link');
+          link.rel = 'icon';
+          link.type = 'image/png';
+          link.href = faviconUrl;
+          document.head.appendChild(link);
+
+          const shortcut = document.createElement('link');
+          shortcut.rel = 'shortcut icon';
+          shortcut.type = 'image/x-icon';
+          shortcut.href = '/favicon.ico?t=' + Date.now();
+          document.head.appendChild(shortcut);
+        };
+        updateFavicon();
+      })();
+    </script>
+  </head>
+  <body class="bg-guard-softbg text-guard-navy font-sans antialiased selection:bg-pastel-blush selection:text-guard-midnight min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
